@@ -1,0 +1,9 @@
+<h1>US Time Zone Display</h1>
+<button (click)="changeButtons('PST')"  [ngClass]="{'clicked': PSTbool}">PST</button>
+<button (click)="changeButtons('MST')" [ngClass]="{'clicked': MSTbool}">MST</button>
+<button (click)="changeButtons('CST')" [ngClass]="{'clicked': CSTbool}">CST</button>
+<button (click)="changeButtons('EST')" [ngClass]="{'clicked': ESTbool}">EST</button>
+<button (click)='clear()'>Clear</button>
+<div [ngClass]="{'datebox': dateShow, 'hiddenbox': dateHide}">{{showDate | date: 'longDate'}}, {{showDate | date: 'shortTime'}}</div>
+
+

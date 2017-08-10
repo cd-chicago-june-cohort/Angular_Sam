@@ -1,0 +1,11 @@
+.clicked {
+    background: yellow;
+}
+
+.datebox{
+    margin-top: 10px;
+}
+
+.hiddenbox{
+    display: none;
+}
