@@ -1,0 +1,7 @@
+<h1>SwitchBoard</h1>
+<div>
+  <div (click)='switch(i, square)' class='switch' *ngFor ='let square of board; let i = index' [ngClass]="{'on': square, 'off': !square }">
+    <div class='switch-text' *ngIf='square'>ON</div>
+    <div class='switch-text' *ngIf='!square'>OFF</div>
+  </div>
+</div>
