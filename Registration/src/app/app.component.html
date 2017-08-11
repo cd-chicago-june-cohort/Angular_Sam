@@ -1,0 +1,90 @@
+<h1>Registration</h1>
+<div class='form-container'>
+  <h2>Account Information</h2>
+
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-md-8'>
+          <div class='success-box' *ngIf="success">
+            Thank you for registering with us, {{users[len].first}}. We just sent you a confirmation email at <span class='email'>{{users[len].email}}</span>, and we will send all mail to {{users[len].street}}, {{users[len].city}}, {{users[len].state}}.<br><br>Have a wonderful day!
+          </div>
+          <form (submit)='onSubmit()' #formData='ngForm'>
+            <div class="form-group row">
+              <div class='form-group'><label for="first_name" class="col-1 col-form-label">*First Name:</label>
+              <input class="form-control" type="text" name="first_name" [(ngModel)]="user.first" 
+              required minlength="2" maxlength="30" #first='ngModel'>
+              <div *ngIf='first.errors'>
+                <div class='errors' *ngIf="first.errors.required">First name input is required.</div>  
+              </div></div>
+              
+              <div class='form-group'><label for="last_name" class="col-1 col-form-label">*Last Name:</label>
+              <input class="form-control" type="text" name="last_name" [(ngModel)]="user.last"
+              required minlength="2" maxlength="30" #last='ngModel'>
+              <div *ngIf='last.errors' class='errors'>
+                <div class='errors' *ngIf="last.errors.required">Last name input is required.</div>  
+              </div></div>
+              
+              <div class='form-group'><label for="email" class="col-1 col-form-label">*Email:</label>
+              <input class="form-control" type="text" name="email" [(ngModel)]="user.email"
+              required minlength="5" maxlength="30" #email='ngModel'>
+              <div *ngIf='email.errors' class='errors'>
+                <div class='errors' *ngIf="email.errors.required">Email input is required.</div>    
+              </div></div>
+              
+              <div class='form-group'><label for="password" class="col-1 col-form-label">*Password:</label>
+              <input class="form-control" type="password" name="password" [(ngModel)]="user.password"
+              required minlength="8" maxlength="32"  pattern="^([a-zA-Z0-9@*#]{8,15})$" #password='ngModel'>
+              <div *ngIf='password.errors' class='errors'>
+                <div class='errors' *ngIf="password.errors.required">Password is required.</div> 
+                <div class='errors' *ngIf="password.errors.pattern">Password format error. Letters and numbers only. At least 8 characters.</div>  
+              </div></div>
+              
+              <div class='form-group'><label for="confirm_pw" class="col-1 col-form-label">*Confirm Password:</label>
+              <input class="form-control" type="password" name="confirm_pw"
+              required minlength="8" maxlength="32"  [(ngModel)]="user.confirm" pattern="^([a-zA-Z0-9@*#]{8,15})$" #confirm='ngModel'>
+              <div class='errors'><div class='errors' *ngIf="user.confirm !== user.password">Passwords do not match.</div></div>
+              <div *ngIf='confirm.errors' class='errors'>
+                <div class='errors' *ngIf="confirm.errors.required">Password is required.</div> 
+                <div class='errors' *ngIf="confirm.errors.pattern">Password format error. Letters and numbers only. At least 8 characters.</div>  
+              </div></div>
+
+              <div class='form-group'><label for="street" class="col-1 col-form-label">*Street Address:</label>
+              <input class="form-control" type="text" name="street" [(ngModel)]="user.street"
+              required minlength="5" maxlength="50" #street='ngModel'><div *ngIf='street.errors' class='errors'>
+                <div class='errors' *ngIf="street.errors.required">Street address is required.</div> 
+              </div></div>
+              
+              <div class='form-group'><label for="unit" class="col-1 col-form-label">Apartment/Unit:</label>
+              <input class="form-control" type="text" name="unit" [(ngModel)]="user.unit" #unit='ngModel'><div *ngIf='unit.errors' class='errors'>{{ unit.errors | json }}</div></div>
+              
+              <div class='form-group'><label for="city" class="col-1 col-form-label">*City:</label>
+              <input class="form-control" type="text" name="city" [(ngModel)]="user.city" 
+              minlength="2" maxlength="50" required #city='ngModel'>
+              <div *ngIf='city.errors' class='errors'>
+                <div class='errors' *ngIf="city.errors.required">City is required.</div>   
+              </div></div>
+              
+              <div class='form-group'><label for='state'>*State:</label>
+              <select name='state' [(ngModel)]="user.state" required #state='ngModel'>
+                <option *ngFor="let state of states" value='{{state}}'>{{state}}</option>
+              </select>
+                <label for='lucky'>*I'm feeling lucky:</label>
+                Yes <input type='radio' value='yes' name='lucky' [(ngModel)]="user.lucky" required #lucky='ngModel'>
+                No <input type='radio' value='no' name='lucky' [(ngModel)]="user.lucky" required #lucky='ngModel'>
+                <div *ngIf='state.errors' class='errors'>
+                  <div class='errors' *ngIf="state.errors.required">State is required.</div> 
+                </div>
+                
+                
+                <div *ngIf='lucky.errors' class='errors'>
+                  <div class='errors' *ngIf="lucky.errors.required">Lucky feeling is required!</div>   
+                </div> 
+              </div>
+              <!-- <div *ngIf="!first.errors && !last.errors && !"> -->
+                <div class="col-4"><button class="btn btn-primary register" type="submit" [disabled]="user.confirm !== user.password || !formData.valid">Register</button></div>
+            </div>
+          </form>
+        </div> 
+    </div>
+</div>
+      </div>
