@@ -1,0 +1,22 @@
+<fieldset class='main'>
+  <legend>PowerComponent</legend>
+  <div class='head'>
+    <form class='power-form' (submit)="onSubmit()">
+      <label for='power'>Initial Power Level:</label>
+      <select id='levels' name='power' [(ngModel)]='powerGrab'>
+        <option *ngFor="let num of powers" value="{{num}}">{{num}}</option>
+      </select>
+      <button id='calculate' type="submit">Calculate Powers</button>
+    </form>
+    <div class='frame'><img class='prof' src='https://static.giantbomb.com/uploads/original/0/31/11738-ssj_goku.jpg'></div>
+  </div>
+
+  <div class='component top'><app-human [humanPower]='humanPower'></app-human></div>
+   <div class='component top'><app-saiyan [saiyanPower]='saiyanPower'></app-saiyan></div>
+   <div class='component-right top'><app-supersaiyan [ssPower]='ssPower'></app-supersaiyan></div>
+   <div class='component'><app-supersaiyan2 [ss2Power]='ss2Power'></app-supersaiyan2></div>
+  <div class='component'><app-supersaiyan3 [ss3Power]='ss3Power'></app-supersaiyan3></div>
+  <div class='component-right'><app-supersaiyan4 [ss4Power]='ss4Power'></app-supersaiyan4></div>   
+
+</fieldset>
+<!-- <div><app-human></app-human></div> -->

@@ -1,0 +1,6 @@
+<fieldset class='ss3-field'>
+    <legend>SuperSaiyanThreeComponent</legend>
+    <div class='power-div'>Power Level: {{ss3Power}}</div>
+    <div class='msg' *ngIf='ss3Power > 9000 && ss3Power < 20000'>"Over 9000!"</div>
+    <div class='msg' *ngIf='ss3Power > 20000 && ss3Power < 50000'>"Superlative!"</div>
+</fieldset>

@@ -1,0 +1,14 @@
+.saiyan-field{
+    height: 140px;
+    border: 2px solid black;
+}
+
+legend {
+    font-family: sans-serif;
+}
+
+.power-div{
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 5px 0px 0px 20px; 
+}

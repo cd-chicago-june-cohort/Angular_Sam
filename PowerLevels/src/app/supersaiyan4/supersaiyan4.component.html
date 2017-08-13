@@ -1,0 +1,7 @@
+<fieldset class='ss4-field'>
+    <legend>SuperSaiyanFourComponent</legend>
+    <div class='power-div'>Power Level: {{ss4Power}}</div>
+    <div class='msg' *ngIf='ss4Power > 9000 && ss4Power < 20000'>"Over 9000!"</div>
+    <div class='msg' *ngIf='ss4Power > 20000 && ss4Power < 50000'>"Superlative!"</div>
+    <div class='msg' *ngIf='ss4Power == 50000'>"The One"</div>
+</fieldset>
