@@ -1,0 +1,19 @@
+<div class='container'>
+  <h1>Github Score</h1>
+  <div class='left'>
+    <form (submit)='getScores()'>  
+      <label for='username'>Github Username:</label>
+      <input type='text' name='username' required [(ngModel)]='username'>
+      <button type='submit'>Calculate my Github Score</button>
+    </form>
+  </div>
+  <div class='right'>
+    Your Score: {{user.followers + user.public_repos}}
+    <div *ngIf='user.followers + user.public_repos < 20' [ngStyle]="{'color': 'red'}">Needs work.</div>
+    <div *ngIf='user.followers + user.public_repos >=20 && user.followers + user.public_repos < 50' [ngStyle]="{'color': 'orange'}">A decent start.</div>
+    <div *ngIf='user.followers + user.public_repos >=50 && user.followers + user.public_repos < 100' [ngStyle]="{'color': 'black'}">Doing well</div>
+    <div *ngIf='user.followers + user.public_repos >=100 && user.followers + user.public_repos < 200' [ngStyle]="{'color': 'green'}">Great work!</div>
+    <div *ngIf='user.followers + user.public_repos >=200' [ngStyle]="{'color': 'blue'}">Github Master!!</div>
+    
+  </div>
+</div>
