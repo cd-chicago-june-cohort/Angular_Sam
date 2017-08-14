@@ -1,0 +1,17 @@
+<h1>Add a Quote</h1>
+<div class='left'>
+  <form #formData='ngForm' (submit)='emitQuote()'>
+    <textarea id='quote-content' name='quote-content' [(ngModel)]="quote.content"
+     required minlength="4" #content='ngModel'></textarea>
+    <div id='speaker-div'><span>Author: </span><input type='text' name='speaker' id='speaker' [(ngModel)]="quote.speaker"
+      required minlength="1" #speaker='ngModel' ></div>
+    <button type="submit" id='submit' [disabled]='!formData.valid'>Add Quote</button>
+  </form>
+</div>
+<div class='right'>
+  <div *ngIf='content.errors'>
+    <div class='error' *ngIf='content.errors.required'>Quote content is required.</div>
+    <div class='error' *ngIf='content.errors.minlength'>Quote content must be at least four characters.</div>
+  </div>
+  <div class='error' *ngIf='speaker.errors'>Speaker field is required.</div>
+</div>

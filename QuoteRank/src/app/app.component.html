@@ -1,0 +1,3 @@
+<div class='head-form'><app-quoteform (sendQuote)='sendQuote($event)'></app-quoteform></div>
+<div class='quote-list'><app-quotelist [quotes]='quotes' (emitUp)='emitUp($event)' (emitDown)='emitDown($event)' (emitDelete)='emitDelete($event)'></app-quotelist></div>
+

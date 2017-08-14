@@ -1,0 +1,12 @@
+<div class='quote-box' *ngFor='let quote of quotes; let i=index'>
+  <div class='left'>
+    "{{quote.content}}"<br>-{{quote.speaker}}
+  </div>
+  <div class='score' *ngIf='quote.rating > 0'>+{{quote.rating}}</div>
+  <div class='score' *ngIf='quote.rating <= 0'>{{quote.rating}}</div>
+  <div class='right'>
+    <button class='up buttons' (click)="upvote(i)">Vote Up</button>
+    <button class='down buttons' (click)="downvote(i)">Vote Down</button>
+    <button class='delete buttons' (click)="delete(i)">Delete</button>
+  </div>
+</div>
